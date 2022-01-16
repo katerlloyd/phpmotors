@@ -16,7 +16,7 @@ input {
 #account {
     float: right;
     padding: 1rem;
-    color: #8d8d8d;
+    color: #747474;
     text-decoration: none;
 }
 
@@ -49,9 +49,9 @@ nav a {
 
 nav a:hover {
     color: #3a3a3a;
-    border-top: 3px solid #4c96d7;
-    border-bottom: 3px solid #4c96d7;
-    background-color: #4c96d7;
+    border-top: 3px solid #2770af;
+    border-bottom: 3px solid #2770af;
+    background-color: #2770af;
 }
 
 main {
@@ -115,7 +115,7 @@ p {
 }
 
 #upgrades-grid picture {
-    background-color: #4c96d7;
+    background-color: #2770af;
     border: 1px solid #3a3a3a;
 }
 
@@ -131,7 +131,7 @@ p {
     
     body {
         margin: 0.5rem auto;
-        border: 5px solid #4c96d7;
+        border: 5px solid #2770af;
         border-radius: 8px;
         width: 80%;
         font-size: 15pt;
@@ -151,7 +151,7 @@ p {
         grid-row: 1;
     }
     
-    #parts-grid section:nth-child(odd){
+    #parts-grid section:nth-child(odd) {
         grid-column: 2;
     }
 
