@@ -49,9 +49,9 @@ nav a {
 
 nav a:hover {
     color: #3a3a3a;
-    border-top: 3px solid #2770af;
-    border-bottom: 3px solid #2770af;
-    background-color: #2770af;
+    border-top: 3px solid #2c7dc4;
+    border-bottom: 3px solid #2c7dc4;
+    background-color: #2c7dc4;
 }
 
 main {
