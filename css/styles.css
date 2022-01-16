@@ -1,0 +1,173 @@
+body {
+    font-family: monospace;
+    font-size: 11pt;
+    background-color: white;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+input {
+    max-width: 100%;
+}
+
+#account {
+    float: right;
+    padding: 1rem;
+    color: #8d8d8d;
+    text-decoration: none;
+}
+
+nav {
+    background-color: #3a3a3a;
+    color: #bababa;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.75rem 0;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    justify-content: center;
+    display: block;
+}
+
+nav a {
+    color: #bababa;
+    text-decoration: none;
+    padding: 0.75rem 0.5rem;
+    background-color: #3a3a3a;
+}
+
+nav a:hover {
+    color: #3a3a3a;
+    border-top: 3px solid #4c96d7;
+    border-bottom: 3px solid #4c96d7;
+    background-color: #4c96d7;
+}
+
+main {
+    padding: 1px;
+}
+
+#dmc {
+    color: #4c96d7;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#dmc-text {
+    padding: 1rem;
+    max-width: fit-content;
+}
+
+#dmc-text h2 {
+    margin: 0;
+}
+
+#dmc section {
+    z-index: 1;
+}
+
+#delorean {
+    position: relative;
+    top: -2.5rem;
+}
+
+#own {
+    padding: 1rem;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+footer {
+    border-top: 4px solid #3a3a3a;
+    text-align: center;
+    padding: 1rem;
+}
+
+p {
+    margin: 0;
+}
+
+#dmc, #parts-grid {
+    margin: 1rem;
+}
+
+#parts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#upgrades-grid {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+}
+
+#upgrades-grid picture {
+    background-color: #4c96d7;
+    border: 1px solid #3a3a3a;
+}
+
+#upgrades-grid a {
+    margin-bottom: 1rem;
+}
+
+@media only screen and (min-width: 43rem) {
+
+    html {
+        background-image: url("../images/site/small_check.jpg");
+    }
+    
+    body {
+        margin: 0.5rem auto;
+        border: 5px solid #4c96d7;
+        border-radius: 8px;
+        width: 75%;
+        font-size: 15pt;
+    }
+
+    nav a {
+        padding: 0.75rem;
+    }
+    
+    #parts-grid {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+    }
+   
+    #parts-grid section:nth-child(even) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    #parts-grid section:nth-child(odd){
+        grid-column: 2;
+    }
+
+    #dmc section:nth-child(odd) {
+        grid-row: 1;
+    }
+
+    #dmc picture {
+        grid-row: 3;
+    }
+    
+    #dmc:nth-child(even) {
+        grid-row: 2;
+    }
+
+    #own {
+        margin: 0;
+    }
+}
