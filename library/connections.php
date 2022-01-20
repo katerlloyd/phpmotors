@@ -10,12 +10,9 @@
 
         try {
             $link = new PDO($dsn, $username, $password, $options);
-            // if (is_object($link)) {
-            //     echo 'It worked';
-            // }
             return $link;
         } catch(PDOException $e) {
-            // echo 'It did not work' . $e->getMessage();
+            // echo 'Connection failed' . $e->getMessage();
             header('Location: /phpmotors/views/500.php');
             exit;
         }
