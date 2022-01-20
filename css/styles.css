@@ -49,13 +49,13 @@ nav a {
 
 nav a:hover {
     color: #3a3a3a;
-    border-top: 3px solid #2c7dc4;
-    border-bottom: 3px solid #2c7dc4;
-    background-color: #2c7dc4;
+    border-top: 3px solid #4c96d7;
+    border-bottom: 3px solid #4c96d7;
+    background-color: #4c96d7;
 }
 
 main {
-    padding: 1px;
+    padding: 0 0.75rem 0.75rem;
 }
 
 #dmc {
