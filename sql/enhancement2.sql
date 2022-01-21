@@ -2,7 +2,7 @@ INSERT INTO clients (clientFirstname, clientLastname, clientEmail, clientPasswor
 VALUES ('Tony', 'Stark', 'tony@starkent.com', 'Iam1ronM@n', 'I am the real Ironman');
 
 UPDATE clients SET clientLevel = 3
-WHERE clientId = 2;
+WHERE clientId = 1;
 
 UPDATE inventory SET invDescription = REPLACE(invDescription, 'small interior', 'spacious interior')
 WHERE invId = 12;
