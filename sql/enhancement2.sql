@@ -13,4 +13,4 @@ WHERE classificationName = "SUV";
 
 DELETE FROM inventory WHERE invId = 1;
 
-UPDATE inventory SET invThumbnail = CONCAT('/phpmotors', invThumbnail);
+UPDATE inventory SET invImage = CONCAT('/phpmotors', invImage), invThumbnail = CONCAT('/phpmotors', invThumbnail);
