@@ -1,8 +1,8 @@
 <?php
     // Proxy connection to the phpmotors database
-    function phpmotorsConnect(){
+    function phpmotorsConnect() {
         $server = 'localhost';
-        $dbname= 'phpmotrs';
+        $dbname= 'phpmotors';
         $username = 'iClient';
         $password = 'rjlSn0Ow2LMGR(P4'; 
         $dsn = "mysql:host=$server;dbname=$dbname";

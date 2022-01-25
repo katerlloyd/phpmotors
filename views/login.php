@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Content Title | PHP Motors</title>
+        <title>Login | PHP Motors</title>
         <link rel="stylesheet" href="/phpmotors/css/styles.css" type="text/css" media="screen">
     </head>
     <body>
@@ -15,7 +15,19 @@
             echo $navList; ?>
         </nav>
         <main>
-            <h1>Content Title Here</h1>
+            <h1>Login</h1>
+            <form>
+                <label for="clientEmail">Email
+                    <input name="clientEmail" id="clientEmail" type="text">
+                </label>
+
+                <label for="clientPassword">Password
+                    <input name="clientPassword" id="clientPassword" type="text">
+                </label>
+
+                <button type="submit">Login</button>
+                <a href="registration.php">Not a member yet?</a>
+            </form>
         </main>
         <footer>
             <?php require $_SERVER['DOCUMENT_ROOT'].'/phpmotors/snippets/footer.php'; ?>

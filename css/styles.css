@@ -123,6 +123,37 @@ p {
     margin-bottom: 1rem;
 }
 
+input, form button, form a {
+    display: block;
+}
+
+input, form button {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+label {
+    font-weight: bold;
+}
+
+form button {
+    background-color: #4c96d7;
+    color: #3a3a3a;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: inherit;
+}
+
+form button:hover {
+    background-color: #0f5592;
+    color: #bababa;
+}
+
+#password-notice {
+    margin-bottom: 0.5rem;
+}
+
 @media only screen and (min-width: 43rem) {
 
     html {
