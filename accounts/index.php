@@ -27,10 +27,16 @@ if ($action == NULL) {
 
 switch ($action) {
     case 'login':
-        include 'views/login.php';
+        include '../views/login.php';
+        // $clientEmail = filter_input(INPUT_POST, 'clientEmail');
+        // $clientPassword = filter_input(INPUT_POST, 'clientPassword');
         break;
     case 'registration':
-        include 'views/registration.php';
+        include '../views/registration.php';
+        // $clientFirstname = filter_input(INPUT_POST, 'clientFirstname');
+        // $clientLastname = filter_input(INPUT_POST, 'clientLastname');
+        // $clientEmail = filter_input(INPUT_POST, 'clientEmail');
+        // $clientPassword = filter_input(INPUT_POST, 'clientPassword');
         break;
     // default:
 

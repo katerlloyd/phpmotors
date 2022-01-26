@@ -18,15 +18,15 @@
             <h1>Login</h1>
             <form>
                 <label for="clientEmail">Email
-                    <input name="clientEmail" id="clientEmail" type="text">
+                    <input name="clientEmail" id="clientEmail" type="text" required>
                 </label>
 
                 <label for="clientPassword">Password
-                    <input name="clientPassword" id="clientPassword" type="text">
+                    <input name="clientPassword" id="clientPassword" type="text" required>
                 </label>
 
                 <button type="submit">Login</button>
-                <a href="registration.php">Not a member yet?</a>
+                <a href="/phpmotors/accounts?action=registration">Need to create an account?</a>
             </form>
         </main>
         <footer>

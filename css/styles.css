@@ -145,7 +145,7 @@ form button {
     font-size: inherit;
 }
 
-form button:hover {
+form button:hover, form button:focus {
     background-color: #0f5592;
     color: #bababa;
 }

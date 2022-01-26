@@ -18,22 +18,24 @@
             <h1>Register</h1>
             <form>
                 <label for="clientFirstname">First Name
-                    <input name="clientFirstname" id="clientFirstname" type="text">
+                    <input name="clientFirstname" id="clientFirstname" type="text" required>
                 </label>
                 
                 <label for="clientLastname">Last Name
-                    <input name="clientLastname" id="clientLastname" type="text">
+                    <input name="clientLastname" id="clientLastname" type="text" required>
                 </label>
 
                 <label for="clientEmail">Email
-                    <input name="clientEmail" id="clientEmail" type="text">
+                    <input name="clientEmail" id="clientEmail" type="text" required>
                 </label>
 
                 <p id="password-notice">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter, and 1 special character.</p>
 
                 <label for="clientPassword">Password
-                    <input name="clientPassword" id="clientPassword" type="text">
+                    <input name="clientPassword" id="clientPassword" type="text" required>
                 </label>
+
+                <p>All fields are required.</p>
 
                 <button type="submit">Register</button>
             </form>
