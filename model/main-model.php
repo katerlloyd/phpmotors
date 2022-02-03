@@ -5,7 +5,7 @@ function getClassifications() {
 
     $db = phpmotorsConnect(); 
 
-    $sql = 'SELECT classificationName FROM carclassification ORDER BY classificationName ASC'; 
+    $sql = 'SELECT classificationName, classificationId FROM carclassification ORDER BY classificationName ASC'; 
  
     $stmt = $db->prepare($sql);
 

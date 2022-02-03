@@ -16,17 +16,19 @@
         </nav>
         <main>
             <h1>Login</h1>
-            <form>
+            <?php if (isset($message)) {echo $message;} ?>
+            <form action="/phpmotors/accounts/index.php" method="POST">
                 <label for="clientEmail">Email
-                    <input name="clientEmail" id="clientEmail" type="text" required>
+                    <input name="clientEmail" id="clientEmail" type="email">
                 </label>
 
                 <label for="clientPassword">Password
-                    <input name="clientPassword" id="clientPassword" type="text" required>
+                    <input name="clientPassword" id="clientPassword" type="password">
                 </label>
 
                 <button type="submit">Login</button>
-                <a href="/phpmotors/accounts?action=registration">Need to create an account?</a>
+                <!-- <input type="submit" name="submit" value="Login"> -->
+                <a href="/phpmotors/accounts?action=register-page">Need to create an account?</a>
             </form>
         </main>
         <footer>

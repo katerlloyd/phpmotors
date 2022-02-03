@@ -1,14 +1,11 @@
 <?php 
-// This is the accounts controller
+// This is the vehicle controller
 
 require_once '../library/connections.php';
 require_once '../model/main-model.php';
-require_once '../model/accounts-model.php';
+require_once '../model/vehicles-model.php';
 
 $classifications = getClassifications();
-
-// var_dump($classifications);
-// exit;
 
 $navList = '<ul>';
 $navList .= "<li><a href='/phpmotors/index.php' title='View the PHP Motors home page'>Home</a></li>";
@@ -17,8 +14,11 @@ foreach ($classifications as $classification) {
 }
 $navList .= '</ul>';
 
-// echo $navList;
-// exit;
+$classificationList = '<label for="classification">Choose a Car:</label><select name="classification" id="classification">';
+foreach ($classifications as $classification) {
+    $classificationList .= "<option value='$classification[classificationId]'>$classification[classificationName]</option>";
+}
+$classificationList .= '</select>';
 
 $action = filter_input(INPUT_POST, 'action');
 
