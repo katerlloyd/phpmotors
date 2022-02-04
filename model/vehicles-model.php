@@ -31,8 +31,7 @@ function insertClassification($classificationId, $classificationName) {
     return $rowsChanged;
 }
 
-function insertVehicle($invId, $invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId
-) {
+function insertVehicle($invId, $invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId) {
    
     // Create a connection object using the phpmotors connection function
     $db = phpmotorsConnect();
