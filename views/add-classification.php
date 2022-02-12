@@ -16,10 +16,15 @@
         </nav>
         <main>
             <h1>Add Classification</h1>
-            <p>Contain a form for adding a new classification (you will only need to add the name, the id in the table is auto-incrementing).
-The form must send all data to the vehicles controller for checking and insertion to the database.
-The view must have the means of displaying messages returned to it from the controller.
-When the data is sent for insertion to the controller and if the insertion works, the vehicles controller should call itself using a header() function and pass no name - value pair. This should result in the "vehicle management" view being displayed and the new classification should appear as part of the navigation menu. Note: There will NOT be a success message. The classification item appearing in the navigation bar will be the indication of success. However, if it fails, then a clear failure message should be displayed in the add new classification view.</p>
+            <?php if (isset($message)) {echo $message;} ?>
+            <form action="/phpmotors/vehicles/index.php" method="POST">
+                <label for="classificationName">Classification Name
+                    <input name="classificationName" id="classificationName" type="text">
+                </label>
+
+                <button type="submit">Add Classification</button>
+                <input type="hidden" name="action" value="add-classification">
+            </form>
         </main>
         <footer>
             <?php require $_SERVER['DOCUMENT_ROOT'].'/phpmotors/snippets/footer.php'; ?>

@@ -61,7 +61,6 @@ switch ($action) {
             include '../views/registration.php';
             exit;
         }
-
         break;
     case 'register-page':
         include '../views/registration.php';

@@ -125,14 +125,18 @@ p {
     margin-bottom: 1rem;
 }
 
-input, form button, form a {
+input, textarea, select, form button, form a {
     display: block;
 }
 
-input, form button {
+input, select, textarea, form button {
     margin-bottom: 1rem;
     padding: 0.5rem;
     border-radius: 5px;
+}
+
+select {
+    font-size: inherit;
 }
 
 label {

@@ -16,12 +16,37 @@
         </nav>
         <main>
             <h1>Add Vehicle</h1>
-            <p>Contain a form for adding a new vehicle to the inventory table. ( Hint: Check the inventory table in the phpmotors database for the fields that will be needed in the form. DO NOT have a form field for the invId field as it is the primary key and is auto-incrementing in the database table).
-When indicating the classification the vehicle belongs to, the classification must use the "select" element's drop-down list that should have been pre-built in the controller.
-When adding images use the path to the "No Image Available" image that you downloaded and stored in this enhancement. (Hint: this could be hard coded into the form to happen automatically for now)
-The view must have the means of displaying messages returned to it from the controller.
-The form must send all data to the vehicles controller for checking and insertion to the database.
-If the new vehicle is added successfully, a message to that affect must be displayed in the "add new vehicle" view.</p>
+            <?php if (isset($message)) {echo $message;} ?>
+            <form action="/phpmotors/vehicles/index.php" method="POST">
+                <?php echo $classificationList; ?>
+                <label for="invMake">Make
+                    <input name="invMake" id="invMake" type="text">
+                </label>
+                <label for="invModel">Model
+                    <input name="invModel" id="invModel" type="text">
+                </label>
+                <label for="invDescription">Description
+                    <textarea name="invDescription" id="invDescription" rows="4" cols="50"></textarea>
+                </label>
+                <label for="invImage">Image Path
+                    <input name="invImage" id="invImage" type="text">
+                </label>
+                <label for="invThumbnail">Thumbnail Path
+                    <input name="invThumbnail" id="invThumbnail" type="text">
+                </label>
+                <label for="invPrice">Price
+                    <input name="invPrice" id="invPrice" type="text">
+                </label>
+                <label for="invStock">Stock
+                    <input name="invStock" id="invStock" type="text">
+                </label>
+                <label for="invColor">Color
+                    <input name="invColor" id="invColor" type="text">
+                </label>
+
+                <button type="submit">Add Vehicle</button>
+                <input type="hidden" name="action" value="add-vehicle">
+            </form>
         </main>
         <footer>
             <?php require $_SERVER['DOCUMENT_ROOT'].'/phpmotors/snippets/footer.php'; ?>

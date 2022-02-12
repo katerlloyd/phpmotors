@@ -16,10 +16,10 @@
         </nav>
         <main>
             <h1>Vehicle Management</h1>
-            <p>Create a "vehicle management" view using the phpmotors template that is delivered by default (Hint: remember that default statement in a switch control structure?)) when the vehicle controller is accessed without a name - value pair.
-This view must contain two links:
-One to the controller that will trigger the delivery of the add classification view.
-One to the controller that will trigger the delivery of the add vehicle view.</p>
+            <ul>
+                <li><a href="/phpmotors/vehicles?action=add-classification" title="Add a classification">Add Classification</a></li>
+                <li><a href="/phpmotors/vehicles?action=add-vehicle" title="Add a vehicle">Add Vehicle</a></li>
+            </ul>
         </main>
         <footer>
             <?php require $_SERVER['DOCUMENT_ROOT'].'/phpmotors/snippets/footer.php'; ?>
