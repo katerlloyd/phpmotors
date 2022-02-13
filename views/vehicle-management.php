@@ -17,8 +17,8 @@
         <main>
             <h1>Vehicle Management</h1>
             <ul>
-                <li><a href="/phpmotors/vehicles?action=add-classification" title="Add a classification">Add Classification</a></li>
-                <li><a href="/phpmotors/vehicles?action=add-vehicle" title="Add a vehicle">Add Vehicle</a></li>
+                <li><a href="/phpmotors/vehicles?action=add-classification-page" title="Add a classification">Add Classification</a></li>
+                <li><a href="/phpmotors/vehicles?action=add-vehicle-page" title="Add a vehicle">Add Vehicle</a></li>
             </ul>
         </main>
         <footer>

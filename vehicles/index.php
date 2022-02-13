@@ -14,7 +14,7 @@ foreach ($classifications as $classification) {
 }
 $navList .= '</ul>';
 
-$classificationList = '<label for="classification">Select Car Classification</label><select name="classification" id="classification">';
+$classificationList = '<label for="classificationId">Select Car Classification</label><select name="classificationId" id="classificationId">';
 foreach ($classifications as $classification) {
     $classificationList .= "<option value='$classification[classificationId]'>$classification[classificationName]</option>";
 }
@@ -27,6 +27,12 @@ if ($action == NULL) {
 }
 
 switch ($action) {
+    case 'add-classification-page':
+        include '../views/add-classification.php';
+        break;
+    case 'add-vehicle-page':
+        include '../views/add-vehicle.php';
+        break;
     case 'add-classification':
             // Filter and store data
             $classificationName = filter_input(INPUT_POST, 'classificationName');
@@ -74,7 +80,7 @@ switch ($action) {
 
         // Check and report result
         if ($regOutcome === 1) {
-            $message = "<p>$invMale $invModel added successfully.</p>";
+            $message = "<p>$invMake $invModel added successfully.</p>";
             // header('Location: /');
             include '../views/add-vehicle.php';
             exit;

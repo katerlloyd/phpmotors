@@ -26,7 +26,7 @@
                     <input name="invModel" id="invModel" type="text">
                 </label>
                 <label for="invDescription">Description
-                    <textarea name="invDescription" id="invDescription" rows="4" cols="50"></textarea>
+                    <textarea name="invDescription" id="invDescription" rows="5"></textarea>
                 </label>
                 <label for="invImage">Image Path
                     <input name="invImage" id="invImage" type="text">
