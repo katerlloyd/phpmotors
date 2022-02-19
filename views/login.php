@@ -19,15 +19,18 @@
             <?php if (isset($message)) {echo $message;} ?>
             <form action="/phpmotors/accounts/index.php" method="POST">
                 <label for="clientEmail">Email
-                    <input name="clientEmail" id="clientEmail" type="email">
+                    <input name="clientEmail" id="clientEmail" type="email" <?php if(isset($clientEmail)){echo "value='$clientEmail'";}  ?> required>
                 </label>
 
                 <label for="clientPassword">Password
-                    <input name="clientPassword" id="clientPassword" type="password">
+                    <input name="clientPassword" id="clientPassword" type="password" pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
                 </label>
+
+                <span id="password-notice">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character.</span>
 
                 <button type="submit">Login</button>
                 <!-- <input type="submit" name="submit" value="Login"> -->
+                <input type="hidden" name="action" value="Login">
                 <a href="/phpmotors/accounts?action=register-page">Need to create an account?</a>
             </form>
         </main>

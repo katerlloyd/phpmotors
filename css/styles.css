@@ -207,4 +207,12 @@ form button:hover, form button:focus {
     #own {
         margin: 0;
     }
+
+    input:required:invalid, input:focus:invalid, textarea:required:invalid, textarea:focus:invalid {
+        background-color: #ffc3c3;
+    }
+    
+    input:required:valid, textarea:required:valid {
+        background-color: #daffc2;
+    }
 }

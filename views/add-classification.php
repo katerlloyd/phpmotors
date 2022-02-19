@@ -18,8 +18,9 @@
             <h1>Add Classification</h1>
             <?php if (isset($message)) {echo $message;} ?>
             <form action="/phpmotors/vehicles/index.php" method="POST">
+                <span>The classification name cannot be more than 30 characters long.<br></span>
                 <label for="classificationName">Classification Name
-                    <input name="classificationName" id="classificationName" type="text">
+                    <input name="classificationName" id="classificationName" type="text" pattern="/^[a-z]{1,30}$/">
                 </label>
 
                 <button type="submit">Add Classification</button>
