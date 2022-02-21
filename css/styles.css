@@ -13,10 +13,33 @@ input {
     max-width: 100%;
 }
 
+.top {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.text {
+    margin-left: auto;
+    order: 2;
+    padding: 0.5rem;
+}
+
 #account {
-    float: right;
-    padding: 1rem;
+    padding: 0.5rem;
     color: #747474;
+    text-decoration: none;
+}
+
+#welcome {
+    padding: 0.5rem;
+    color: black;
+    text-decoration: none;
+}
+
+#logout {
+    padding: 0.5rem;
+    color: #0f5592;
     text-decoration: none;
 }
 

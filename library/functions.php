@@ -16,7 +16,7 @@ function checkPassword($clientPassword) {
 
 // Check that classificationName is 1-30 characters long
 function checkClassificationName($classificationName) {
-    $pattern = '/^[a-z]{1,30}$/';
+    $pattern = '/^.{1,30}$/';
     return preg_match($pattern, $classificationName);
 }
 

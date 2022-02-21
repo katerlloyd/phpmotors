@@ -1,6 +1,9 @@
 <?php 
 // This is the vehicle controller
 
+// Create or access a Session
+session_start();
+
 require_once '../library/connections.php';
 require_once '../library/functions.php';
 require_once '../model/main-model.php';
@@ -15,6 +18,11 @@ $navList = buildNavList($classifications);
 //     $classificationList .= "<option value='$classification[classificationId]'>$classification[classificationName]</option>";
 // }
 // $classificationList .= '</select>';
+
+// Check if the firstname cookie exists, get its value
+if (isset($_COOKIE['firstname'])) {
+    $cookieFirstname = filter_input(INPUT_COOKIE, 'firstname', FILTER_SANITIZE_STRING);
+}
 
 $action = filter_input(INPUT_POST, 'action');
 

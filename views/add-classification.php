@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+if (!(isset($_SESSION['loggedin']) && $_SESSION['clientData']['clientLevel'] > 1)) {
+    header('Location: /phpmotors/');
+}
+?><!DOCTYPE html>
 <html lang="en-US">
     <head>
         <meta charset="UTF-8">
@@ -20,7 +24,7 @@
             <form action="/phpmotors/vehicles/index.php" method="POST">
                 <span>The classification name cannot be more than 30 characters long.<br></span>
                 <label for="classificationName">Classification Name
-                    <input name="classificationName" id="classificationName" type="text" pattern="/^[a-z]{1,30}$/">
+                    <input name="classificationName" id="classificationName" type="text" pattern="^.{1,30}$">
                 </label>
 
                 <button type="submit">Add Classification</button>
