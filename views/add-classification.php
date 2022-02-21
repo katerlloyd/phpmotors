@@ -15,8 +15,7 @@ if (!(isset($_SESSION['loggedin']) && $_SESSION['clientData']['clientLevel'] > 1
            <?php require $_SERVER['DOCUMENT_ROOT'].'/phpmotors/snippets/header.php'; ?>
         </header>
         <nav>
-            <?php //require $_SERVER['DOCUMENT_ROOT'].'/phpmotors/snippets/nav.php'; 
-            echo $navList; ?>
+            <?php echo $navList; ?>
         </nav>
         <main>
             <h1>Add Classification</h1>

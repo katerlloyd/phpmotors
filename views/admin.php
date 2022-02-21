@@ -2,6 +2,7 @@
 if (!isset($_SESSION['loggedin'])) {
     header('Location: /phpmotors/');
 } else {
+    $clientData = $_SESSION['clientData'];
     $info = "<h1>$clientData[clientFirstname] $clientData[clientLastname]</h1>";
     $info .= '<p>You are logged in.</p>';
     $info .= '<ul>';
