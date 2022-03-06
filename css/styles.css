@@ -183,6 +183,38 @@ form button:hover, form button:focus {
     margin-bottom: 0.5rem;
 }
 
+    input:required:invalid, input:focus:invalid, textarea:required:invalid, textarea:focus:invalid {
+        background-color: #ffdede;
+    }
+
+    input:required:valid, textarea:required:valid {
+        background-color: #daffc2;
+    }
+
+    #inventoryDisplay thead th {
+        text-align: left;
+    }
+
+    #inventoryDisplay tbody tr td {
+        padding: 0.5rem;
+    }
+
+    #inventoryDisplay a {
+        text-decoration: none;
+        padding: 0.25rem;
+        border-radius: 7px;
+    }
+
+    #inventoryDisplay tbody tr td:nth-child(3n+0) a {
+        color: #8a1919;
+        background-color: #ffdede;
+    }
+
+	#inventoryDisplay tbody tr td:nth-child(2n+0) a {
+        color: #194e7d;
+        background-color: #d4ebff;
+    }
+
 @media only screen and (min-width: 43rem) {
 
     html {
@@ -229,13 +261,5 @@ form button:hover, form button:focus {
 
     #own {
         margin: 0;
-    }
-
-    input:required:invalid, input:focus:invalid, textarea:required:invalid, textarea:focus:invalid {
-        background-color: #ffc3c3;
-    }
-    
-    input:required:valid, textarea:required:valid {
-        background-color: #daffc2;
     }
 }

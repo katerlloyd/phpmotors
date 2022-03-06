@@ -4,6 +4,7 @@ if (!isset($_SESSION['loggedin'])) {
 } else {
     $clientData = $_SESSION['clientData'];
     $info = "<h1>$clientData[clientFirstname] $clientData[clientLastname]</h1>";
+    if (isset($_SESSION['message'])) { $info .= $_SESSION['message']; }
     $info .= '<p>You are logged in.</p>';
     $info .= '<ul>';
     $info .= "<li><strong>First Name:</strong> $clientData[clientFirstname]</li>";
@@ -11,8 +12,12 @@ if (!isset($_SESSION['loggedin'])) {
     $info .= "<li><strong>Email:</strong> $clientData[clientEmail]</li>";
     $info .= '</ul>';
 
+    $info .= "<h2>Account Management</h2>";
+    $info .= "<p>Update your account information <a href='/phpmotors/accounts?action=mod'>here</a>.</p>";
+
     if ($_SESSION['clientData']['clientLevel'] > 1) {
-        $info .= "<p>Here is the <a href='/phpmotors/vehicles/'>Vehicle Management</a> page.</p>";
+        $info .= "<h2>Inventory Management</h2>";
+        $info .= "<p>Manage your vehicle inventory <a href='/phpmotors/vehicles/'>here</a>.</p>";
     }
 }
 ?><!DOCTYPE html>
@@ -38,3 +43,4 @@ if (!isset($_SESSION['loggedin'])) {
         </footer>
     </body>
 </html>
+<?php unset($_SESSION['message']); ?>

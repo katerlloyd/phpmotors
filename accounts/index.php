@@ -127,6 +127,95 @@ switch ($action) {
     case 'register-page':
         include '../views/registration.php';
         break;
+	case 'mod':
+		$clientInfo = $_SESSION['clientData'];
+
+        if ($clientInfo === null) {
+            $message = 'Sorry, your information could not be found.';
+        }
+        include '../views/client-update.php';
+        exit;
+	    break;
+	case 'updateAccount':
+        $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_STRING));
+        $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_STRING));
+        $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
+        $clientEmail = checkEmail($clientEmail);
+        $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
+
+        $sessionEmail = $_SESSION['clientData']['clientEmail'];
+
+        if ($clientEmail !== $sessionEmail) {
+            $existingEmail = checkExistingEmail($clientEmail);
+            if ($existingEmail) {
+                $message = '<p class="notice">That email address already exists. Please try a different one.</p>';
+                include '../views/client-update.php';
+                exit;
+            }
+        }
+
+        // Check for missing data
+        if (empty($clientFirstname) || empty($clientLastname) || empty($clientEmail)) {
+            $message = '<p>Please provide information for all empty form fields.</p>';
+            $_SESSION['message'] = $message;
+            include '../views/client-update.php';
+            exit;
+        }
+
+        // Send the data to the model if no errors exist
+        $updateResult = updateClient($clientFirstname, $clientLastname, $clientEmail, $clientId);
+
+        // Check and report result
+        if ($updateResult) {
+            $clientInfo = getClientById($clientId);
+            // Remove the password from the array
+            array_pop($clientInfo);
+            // Store the array into the session
+            $_SESSION['clientData'] = $clientInfo;
+
+            $message = "Your account information has been updated successfully.";
+            $_SESSION['message'] = $message;
+            header('Location: /phpmotors/accounts/');
+            exit;
+        } else {
+            $message = "<p>Error: Your account information was not updated. Please try again.</p>";
+            $_SESSION['message'] = $message;
+            header('Location: /phpmotors/accounts/');
+            exit;
+        }
+		break;
+	case 'updatePassword':
+        $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING));
+        $checkPassword = checkPassword($clientPassword);
+        $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
+
+		// Check for missing data
+        if (empty($checkPassword)) {
+			$message = '<p>Please provide a valid new password.</p>';
+			$_SESSION['message'] = $message;
+            include '../views/client-update.php';
+            exit;
+        }
+
+        // Hash the checked password
+        $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
+
+        // Send the data to the model if no errors exist
+        $updatePasswordResult = updatePassword($hashedPassword, $clientId);
+
+        // Check and report result
+        if ($updatePasswordResult) {
+            $message = "Your password has been updated successfully.";
+            $_SESSION['message'] = $message;
+            header('Location: /phpmotors/accounts/');
+            exit;
+        } else {
+            $message = "<p>Error: Your password was not updated. Please try again.</p>";
+            $_SESSION['message'] = $message;
+            include '../views/client-update.php';
+            exit;
+        }
+        break;
     default:
         include '../views/admin.php';
         break;

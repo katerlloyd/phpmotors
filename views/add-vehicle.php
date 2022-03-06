@@ -1,8 +1,10 @@
 <?php
 if (!(isset($_SESSION['loggedin']) && $_SESSION['clientData']['clientLevel'] > 1)) {
     header('Location: /phpmotors/');
+    exit;
 }
-$classificationList = '<label for="classificationId">Select Car Classification</label><select name="classificationId" id="classificationId">';
+$classificationList = '<label for="classificationId">Car Classification</label><select name="classificationId" id="classificationId">';
+$classificationList .= "<option>Choose a Car Classification</option>";
 foreach ($classifications as $classification) {
     $classificationList .= "<option value='$classification[classificationId]'";
     if (isset($classificationId)) {
