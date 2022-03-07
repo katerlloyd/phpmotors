@@ -1,5 +1,5 @@
 <?php
-if (!(isset($_SESSION['loggedin']) || $_SESSION['clientData']['clientLevel'] < 2)) {
+if (!(isset($_SESSION['loggedin']) || !$_SESSION['clientData']['clientLevel'] > 1)) {
     header('Location: /phpmotors/');
     exit;
 }
