@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php echo $classificationName; ?> vehicles | PHP Motors</title>
+        <title><?php echo $classificationName; ?> Vehicles | PHP Motors</title>
         <link rel="stylesheet" href="/phpmotors/css/styles.css" type="text/css" media="screen">
     </head>
     <body>

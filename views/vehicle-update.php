@@ -7,6 +7,9 @@ $classificationList = '<label for="classificationId">Car Classification</label><
 $classificationList .= "<option>Choose a Car Classification</option>";
 foreach ($classifications as $classification) {
     $classificationList .= "<option value='$classification[classificationId]'";
+//     echo $classificationId;
+//     echo $classification['classificationId'];
+
     if (isset($classificationId)) {
         if ($classification['classificationId'] === $classificationId) {
             $classificationList .= ' selected ';
@@ -14,8 +17,9 @@ foreach ($classifications as $classification) {
 	         if ($classification['classificationId'] === $invInfo['classificationId']) {
 		          $classificationList .= ' selected ';
 	         }
-	     }
+	    }
     }
+//     $classificationList .= ' selected ';
     $classificationList .= ">$classification[classificationName]</option>";
 }
 $classificationList .= '</select>';

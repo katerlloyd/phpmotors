@@ -106,6 +106,7 @@ switch ($action) {
     case 'mod':
         $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
         $invInfo = getInvItemInfo($invId);
+        $classificationId = $invInfo['classificationId'];
         if (count($invInfo) < 1) {
             $message = 'Sorry, no vehicle information could be found.';
         }
@@ -177,8 +178,6 @@ switch ($action) {
 		 } else {
 		    $vehicleDisplay = buildVehiclesDisplay($vehicles);
 		 }
-// 		 echo $vehicleDisplay;
-//          exit;
 		 include '../views/classification.php';
 		 break;
     default:
