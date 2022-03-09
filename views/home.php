@@ -23,7 +23,7 @@
                     <p>Fuzzy dice!</p>
                 </section>
                 <picture>
-                    <img src="/phpmotors/images/delorean.jpg" alt="Delorean car" id="delorean">
+                    <img src="/phpmotors/images/vehicles/delorean.jpg" alt="Delorean car" id="delorean">
                 </picture>
                 <input type="image" src="/phpmotors/images/site/own_today.png" alt="Own today button" id="own">
             </div>

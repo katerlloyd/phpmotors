@@ -215,6 +215,41 @@ form button:hover, form button:focus {
         background-color: #d4ebff;
     }
 
+html{
+ box-sizing: border-box;
+}
+
+*, *:before, *:after{
+ box-sizing: inherit;
+}
+
+#inv-display{
+ margin: 0;
+ padding: 0;
+ display: flex;
+ flex-direction: column;
+}
+
+#inv-display li{
+ margin-bottom: .5em;
+ border: 2px #ccc solid;
+ list-style-type: none;
+ flex: 1 1 auto;
+}
+
+#inv-display li img {
+    max-width: fit-content;
+}
+
+hr {
+  display: block;
+  width: 100%;
+  color: #000000;
+  height: 4px;
+  background-color: #000000;
+}
+
+
 @media only screen and (min-width: 43rem) {
 
     html {
@@ -262,4 +297,29 @@ form button:hover, form button:focus {
     #own {
         margin: 0;
     }
+
+    /* For vehicle display in classification view */
+    	#inv-display {
+    		flex-flow: row wrap;
+    		justify-content: flex-start;
+    	}
+
+    	#inv-display h2 {
+    		font-size: 1rem;
+    	}
+
+    	#inv-display li {
+    		max-width: 200px;
+    		flex: 1 0 auto;
+    		text-align: center;
+    		height: 250px;
+    		display: flex;
+    		flex-direction: column;
+    		justify-content: flex-end;
+    		align-items: center;
+    	}
+
+    	#inv-display div {
+    		max-width: 100%;
+    	}
 }
