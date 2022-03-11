@@ -180,6 +180,16 @@ switch ($action) {
 		 }
 		 include '../views/classification.php';
 		 break;
+	case 'details':
+		$invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
+		$vehicle = getInvItemInfo($invId);
+         if (count($vehicle) < 1) {
+            $message = "<p class='notice'>Sorry, no vehicle information could be found.</p>";
+         } else {
+            $vehicleDisplay = buildVehicleDetailsDisplay($vehicle);
+         }
+		include '../views/vehicle-detail.php';
+		break;
     default:
         $classificationList = buildClassificationList($classifications);
 

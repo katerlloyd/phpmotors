@@ -1,6 +1,6 @@
 body {
     font-family: monospace;
-    font-size: 11pt;
+    font-size: 13pt;
     background-color: white;
     margin: 0;
 }
@@ -223,22 +223,30 @@ html{
  box-sizing: inherit;
 }
 
-#inv-display{
+#inv-display {
  margin: 0;
  padding: 0;
  display: flex;
  flex-direction: column;
 }
 
-#inv-display li{
- margin-bottom: .5em;
+#inv-display li {
  border: 2px #ccc solid;
  list-style-type: none;
  flex: 1 1 auto;
+ border-radius: 7px;
+ text-align: center;
+ padding: 0.5rem;
+ margin: 0.5rem;
+}
+
+#inv-display a {
+	text-decoration: none;
 }
 
 #inv-display li img {
-    max-width: fit-content;
+    max-width: 100%;
+    border-radius: 7px;
 }
 
 hr {
@@ -247,6 +255,42 @@ hr {
   color: #000000;
   height: 4px;
   background-color: #000000;
+}
+
+#vehicle-details {
+	display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    text-align: center;
+}
+
+#vehicle-details img {
+	border-radius: 7px;
+}
+
+#details {
+	display: flex;
+	flex-direction: column;
+}
+
+#vehicle-details p {
+	padding: 1rem;
+	border-radius: 7px;
+	margin: 0;
+	text-align: left;
+}
+
+#price, #title {
+	font-weight: bold;
+	text-align: left;
+}
+
+#details p:nth-child(even) {
+	background-color: #cbe1f5;
+}
+
+#details p:nth-child(3) {
+	background-color: #ebf2fa;
 }
 
 
@@ -296,6 +340,10 @@ hr {
 
     #own {
         margin: 0;
+    }
+
+    #vehicle-details {
+        grid-template-columns: 1fr 1fr;
     }
 
     /* For vehicle display in classification view */
