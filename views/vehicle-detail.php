@@ -24,6 +24,7 @@
             	} ?></h1>
             <?php if (isset($message)) {echo $message;} ?>
             <?php if (isset($vehicleDisplay)) { echo $vehicleDisplay; } ?>
+            <?php if (isset($vehicleThumbnailDisplay)) { echo $vehicleDisplay; } ?>
         </main>
         <footer>
             <?php require $_SERVER['DOCUMENT_ROOT'].'/phpmotors/snippets/footer.php'; ?>

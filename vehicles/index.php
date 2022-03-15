@@ -8,6 +8,7 @@ require_once '../library/connections.php';
 require_once '../library/functions.php';
 require_once '../model/main-model.php';
 require_once '../model/vehicles-model.php';
+require_once '../model/uploads-model.php';
 
 $classifications = getClassifications();
 
@@ -183,10 +184,12 @@ switch ($action) {
 	case 'details':
 		$invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
 		$vehicle = getInvItemInfo($invId);
+		$thumbnails = getAdditionalThumbnails($invId);
          if (count($vehicle) < 1) {
             $message = "<p class='notice'>Sorry, no vehicle information could be found.</p>";
          } else {
             $vehicleDisplay = buildVehicleDetailsDisplay($vehicle);
+            $vehicleThumbnailDisplay = buildVehicleThumbnailDisplay($thumbnails);
          }
 		include '../views/vehicle-detail.php';
 		break;
