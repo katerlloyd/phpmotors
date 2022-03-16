@@ -294,14 +294,15 @@ hr {
 }
 
 #thumbnails {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     margin-top: 1rem;
+    grid-gap: 0.5rem;
 }
 
 #thumbnails img {
-    margin: 0.25rem;
     border-radius: 8px;
+    align-self: stretch;
 }
 
 #grid {

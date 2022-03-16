@@ -185,9 +185,7 @@ switch ($action) {
 		$invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
 		$vehicle = getInvItemInfo($invId);
 		$thumbnails = getAdditionalThumbnails($invId);
-		if (count($thumbnails) < 1) {
-            $message = "<p class='notice'>Sorry, no vehicle thumbnail information could be found.</p>";
-        } else {
+		if (count($thumbnails) >= 1) {
             $vehicleThumbnailDisplay = buildVehicleThumbnailDisplay($thumbnails);
         }
 		if (count($vehicle) < 1) {
