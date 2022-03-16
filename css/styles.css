@@ -183,37 +183,37 @@ form button:hover, form button:focus {
     margin-bottom: 0.5rem;
 }
 
-    input:required:invalid, input:focus:invalid, textarea:required:invalid, textarea:focus:invalid {
-        background-color: #ffdede;
-    }
+input:required:invalid, input:focus:invalid, textarea:required:invalid, textarea:focus:invalid {
+    background-color: #ffdede;
+}
 
-    input:required:valid, textarea:required:valid {
-        background-color: #daffc2;
-    }
+input:required:valid, textarea:required:valid {
+    background-color: #daffc2;
+}
 
-    #inventoryDisplay thead th {
-        text-align: left;
-    }
+#inventoryDisplay thead th {
+    text-align: left;
+}
 
-    #inventoryDisplay tbody tr td {
-        padding: 0.5rem;
-    }
+#inventoryDisplay tbody tr td {
+    padding: 0.5rem;
+}
 
-    #inventoryDisplay a {
-        text-decoration: none;
-        padding: 0.25rem;
-        border-radius: 7px;
-    }
+#inventoryDisplay a {
+    text-decoration: none;
+    padding: 0.25rem;
+    border-radius: 7px;
+}
 
-    #inventoryDisplay tbody tr td:nth-child(3n+0) a {
-        color: #8a1919;
-        background-color: #ffdede;
-    }
+#inventoryDisplay tbody tr td:nth-child(3n+0) a {
+    color: #8a1919;
+    background-color: #ffdede;
+}
 
-	#inventoryDisplay tbody tr td:nth-child(2n+0) a {
-        color: #194e7d;
-        background-color: #d4ebff;
-    }
+#inventoryDisplay tbody tr td:nth-child(2n+0) a {
+    color: #194e7d;
+    background-color: #d4ebff;
+}
 
 html{
  box-sizing: border-box;
@@ -251,7 +251,7 @@ html{
 
 hr {
   display: block;
-  width: 100%;
+  max-width: 100%;
   color: #000000;
   height: 4px;
   background-color: #000000;
@@ -293,8 +293,32 @@ hr {
 	background-color: #ebf2fa;
 }
 
+#thumbnails {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
 
-@media only screen and (min-width: 43rem) {
+#thumbnails img {
+    margin: 0.25rem;
+    border-radius: 8px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#grid #thumbnail-container {
+	grid-row: 2;
+}
+
+#image-display li {
+	list-style-type: none;
+}
+
+
+@media only screen and (min-width: 55rem) {
 
     html {
         background-image: url("../images/site/small_check.jpg");
@@ -360,14 +384,34 @@ hr {
     		max-width: 200px;
     		flex: 1 0 auto;
     		text-align: center;
-    		height: 250px;
     		display: flex;
     		flex-direction: column;
-    		justify-content: flex-end;
+    		justify-content: end;
     		align-items: center;
     	}
 
     	#inv-display div {
     		max-width: 100%;
     	}
+
+        #thumbnails {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #grid {
+            grid-template-columns: 1fr 7fr;
+        }
+
+		#grid #thumbnail-container {
+			grid-row: auto;
+		}
+
+		#grid #thumbnail-container h2 {
+			display: none;
+		}
+
+		#thumbnails img:hover {
+        	transform: scale(2.5);
+        }
 }

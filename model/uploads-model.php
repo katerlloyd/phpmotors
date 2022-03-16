@@ -67,7 +67,7 @@ function checkExistingImage($imgName) {
 // Return all thumbnail images for a vehicle
 function getAdditionalThumbnails($invId) {
 		$db = phpmotorsConnect();
-    	$sql = "SELECT imgId, imgPath, imgName, imgDate, inventory.invId, invMake, invModel FROM images JOIN inventory ON images.invId = inventory.invId WHERE imgPath LIKE '-tn' AND imgPrimary = 0 AND images.invId = $invId";
+    	$sql = "SELECT * FROM images WHERE (invId = $invId) AND (imgPrimary = 0) AND (imgPath LIKE '%-tn%')";
     	$stmt = $db->prepare($sql);
     	$stmt->execute();
     	$imageArray = $stmt->fetchAll(PDO::FETCH_ASSOC);

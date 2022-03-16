@@ -23,8 +23,15 @@
             	    echo "$invMake $invModel";
             	} ?></h1>
             <?php if (isset($message)) {echo $message;} ?>
-            <?php if (isset($vehicleDisplay)) { echo $vehicleDisplay; } ?>
-            <?php if (isset($vehicleThumbnailDisplay)) { echo $vehicleDisplay; } ?>
+            <div id="grid">
+                <div id="thumbnail-container">
+	                <h2 id="thumbnail-title">Vehicle Thumbnails</h2>
+			        <div id="thumbnails">
+			            <?php if (isset($vehicleThumbnailDisplay)) { echo $vehicleThumbnailDisplay; } ?>
+			        </div>
+		        </div>
+		        <?php if (isset($vehicleDisplay)) { echo $vehicleDisplay; } ?>
+            </div>
         </main>
         <footer>
             <?php require $_SERVER['DOCUMENT_ROOT'].'/phpmotors/snippets/footer.php'; ?>

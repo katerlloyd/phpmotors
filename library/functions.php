@@ -62,12 +62,9 @@ function buildVehiclesDisplay($vehicles) {
 function buildVehicleDetailsDisplay($vehicle) {
 	$price = number_format($vehicle['invPrice']);
 	$dv = '<div id="vehicle-details">';
-		$dv .= '<div id="price-img">';
-		$dv .= "<p id='price'>Price: $$price</p>";
 		$dv .= "<img src='$vehicle[imgPath]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
-		$dv .= '</div>';
 		$dv .= '<div id="details">';
-			$dv .= "<p id='title'>$vehicle[invMake] $vehicle[invModel] Details</p>";
+			$dv .= "<p id='price'>Price: $$price</p>";
 			$dv .= "<p>$vehicle[invDescription]</p>";
 			$dv .= "<p>Color: $vehicle[invColor]</p>";
 			$dv .= "<p>In Stock: $vehicle[invStock]</p>";
@@ -236,7 +233,7 @@ function resizeImage($old_image_path, $new_image_path, $max_width, $max_height) 
 function buildVehicleThumbnailDisplay($images) {
 	$dv = '';
 	foreach ($images as $image) {
-		$dv .= "<img src='$image[imgPath]' alt='Thumbnail image $image[imgName] on phpmotors.com'>";
+		$dv .= "<img src='$image[imgPath]' alt='Thumbnail image $image[imgName] on phpmotors.com' class='thumbnail'>";
 	}
 	return $dv;
 }

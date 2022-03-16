@@ -185,12 +185,16 @@ switch ($action) {
 		$invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
 		$vehicle = getInvItemInfo($invId);
 		$thumbnails = getAdditionalThumbnails($invId);
-         if (count($vehicle) < 1) {
-            $message = "<p class='notice'>Sorry, no vehicle information could be found.</p>";
-         } else {
-            $vehicleDisplay = buildVehicleDetailsDisplay($vehicle);
+		if (count($thumbnails) < 1) {
+            $message = "<p class='notice'>Sorry, no vehicle thumbnail information could be found.</p>";
+        } else {
             $vehicleThumbnailDisplay = buildVehicleThumbnailDisplay($thumbnails);
-         }
+        }
+		if (count($vehicle) < 1) {
+			$message = "<p class='notice'>Sorry, no vehicle information could be found.</p>";
+		} else {
+			$vehicleDisplay = buildVehicleDetailsDisplay($vehicle);
+		}
 		include '../views/vehicle-detail.php';
 		break;
     default:
