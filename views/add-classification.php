@@ -22,7 +22,7 @@ if (!(isset($_SESSION['loggedin']) && $_SESSION['clientData']['clientLevel'] > 1
             <h1>Add Classification</h1>
             <?php if (isset($message)) {echo $message;} ?>
             <form action="/phpmotors/vehicles/index.php" method="POST">
-                <span>The classification name cannot be more than 30 characters long.<br></span>
+                <span id='add-notice'>The classification name cannot be more than 30 characters long.<br></span>
                 <label for="classificationName">Classification Name
                     <input name="classificationName" id="classificationName" type="text" pattern="^.{1,30}$">
                 </label>

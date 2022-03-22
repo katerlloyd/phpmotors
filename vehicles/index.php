@@ -9,6 +9,7 @@ require_once '../library/functions.php';
 require_once '../model/main-model.php';
 require_once '../model/vehicles-model.php';
 require_once '../model/uploads-model.php';
+require_once '../model/reviews-model.php';
 
 $classifications = getClassifications();
 
@@ -45,7 +46,7 @@ switch ($action) {
     
             // Check for missing data
             if (empty($checkClassificationName)) {
-                $message = '<p>Please provide information for all empty form fields.</p>';
+                $message = "<p class='notice'>Please provide information for all empty form fields.</p>";
                 include '../views/add-classification.php';
                 exit; 
             }
@@ -58,7 +59,7 @@ switch ($action) {
                 include '../views/vehicle-management.php';                
                 exit;
             } else {
-                $message = "<p>Sorry, something went wrong when adding $classificationName. Please try again.</p>";
+                $message = "<p class='notice'>Sorry, something went wrong when adding $classificationName. Please try again.</p>";
                 include '../views/add-classification.php';
                 exit;
             }
@@ -77,7 +78,7 @@ switch ($action) {
     
             // Check for missing data
             if (empty($invMake) || empty($invModel) || empty($invDescription) || empty($invImage) || empty($invThumbnail) || empty($invPrice) || empty($invStock) || empty($invColor) || empty($classificationId)) {
-                $message = '<p>Please provide information for all empty form fields.</p>';
+                $message = "<p class='notice'>Please provide information for all empty form fields.</p>";
                 include '../views/add-vehicle.php';
                 exit; 
             }
@@ -86,12 +87,11 @@ switch ($action) {
 
         // Check and report result
         if ($regOutcome === 1) {
-            $message = "<p>$invMake $invModel added successfully.</p>";
-            // header('Location: /');
+            $message = "<p class='notice'>$invMake $invModel added successfully.</p>";
             include '../views/add-vehicle.php';
             exit;
         } else {
-            $message = "<p>Sorry, something went wrong when adding $invMake $invModel. Please try again.</p>";
+            $message = "<p class='notice'>Sorry, something went wrong when adding $invMake $invModel. Please try again.</p>";
             include '../views/add-vehicle.php';
             exit;
         }
@@ -127,19 +127,19 @@ switch ($action) {
 		$invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
 
 	    if (empty($classificationId) || empty($invMake) || empty($invModel) || empty($invDescription) || empty($invImage) || empty($invThumbnail) || empty($invPrice) || empty($invStock) || empty($invColor)) {
-		    $message = '<p>Please complete all information for the item! Double check the classification of the item.</p>';
+		    $message = "<p class='notice'>Please complete all information for the item! Double check the classification of the item.</p>";
 		    include '../views/vehicle-update.php';
 		    exit;
 	    }
 
 	    $updateResult = updateVehicle($classificationId, $invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $invId);
 	    if ($updateResult) {
-	        $message = "<p>Congratulations, the $invMake $invModel was successfully updated.</p>";
+	        $message = "<p class='notice'>Congratulations, the $invMake $invModel was successfully updated.</p>";
 	        $_SESSION['message'] = $message;
             header('Location: /phpmotors/vehicles/');
 	        exit;
 	    } else {
-	        $message = "<p>Error: $invMake $invModel was not updated.</p>";
+	        $message = "<p class='notice'>Error: $invMake $invModel was not updated.</p>";
 	        include '../views/vehicle-update.php';
 	        exit;
 	    }
@@ -192,6 +192,13 @@ switch ($action) {
 			$message = "<p class='notice'>Sorry, no vehicle information could be found.</p>";
 		} else {
 			$vehicleDisplay = buildVehicleDetailsDisplay($vehicle);
+		}
+
+		$reviews = getReviewsByInvId($invId);
+		if (!count($reviews)) {
+			$reviewsDisplay = "<p class='review-notice'>No reviews yet! Be the first to write a review!</p>";
+		} else {
+			$reviewsDisplay = buildReviewsDisplay($reviews);
 		}
 		include '../views/vehicle-detail.php';
 		break;

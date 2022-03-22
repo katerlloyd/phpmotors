@@ -55,7 +55,7 @@ switch ($action) {
 
         // Check for missing data
         if (empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($checkPassword)) {
-            $message = '<p>Please provide information for all empty form fields.</p>';
+            $message = "<p class='notice'>Please provide information for all empty form fields.</p>";
             include '../views/registration.php';
             exit; 
         }
@@ -73,7 +73,7 @@ switch ($action) {
             header('Location: /phpmotors/accounts/?action=login');
             exit;
         } else {
-            $message = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
+            $message = "<p class='notice'>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
             include '../views/registration.php';
             exit;
         }
@@ -156,7 +156,7 @@ switch ($action) {
 
         // Check for missing data
         if (empty($clientFirstname) || empty($clientLastname) || empty($clientEmail)) {
-            $message = '<p>Please provide information for all empty form fields.</p>';
+            $message = "<p class='notice'>Please provide information for all empty form fields.</p>";
             $_SESSION['message'] = $message;
             include '../views/client-update.php';
             exit;

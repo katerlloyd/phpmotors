@@ -318,6 +318,31 @@ hr {
 	list-style-type: none;
 }
 
+.review-notice, #password-notice, #add-notice, .name {
+	color: #0f5592;
+}
+
+.notice {
+	color: red;
+	margin: 1rem 0;
+}
+
+.review-notice a {
+	display: inline;
+}
+
+.name {
+	margin-bottom: 1rem;
+}
+
+.review {
+	border: 2px solid #0f5592;
+	border-radius: 8px;
+	margin: 1rem 0;
+	padding: 0.5rem;
+}
+
+
 
 @media only screen and (min-width: 55rem) {
 
