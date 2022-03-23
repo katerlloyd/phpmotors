@@ -1,4 +1,5 @@
 <?php 
+require_once '../model/accounts-model.php';
 
 // Checks if email is valid
 function checkEmail($clientEmail) {
@@ -239,21 +240,21 @@ function buildVehicleThumbnailDisplay($images) {
 }
 
 function buildReviewsDisplay($reviews) {
-	$clientInfo = $_SESSION['clientData'];
 	$dv = '';
 	foreach ($reviews as $review) {
+		$clientInfo = getClientById($review['clientId']);
         $dv .= "<div class='review'>";
         $dv .= "<p>$review[reviewText]</p>";
-        $dv .= "<p>";
-        $dv .= date($review['reviewDate']);
+        $dv .= "<p class='min'>";
+        $dv .= date('F d, Y \a\t g:i A', strtotime($review['reviewDate']));
         $dv .= "</p>";
-        $dv .= "<p>";
+        $dv .= "<p class='min'>";
         if (isset($clientFirstname)) {
             $dv .= substr($clientFirstname, 0, 1);
         } elseif (isset($clientInfo['clientFirstname'])) {
             $dv .= substr($clientInfo['clientFirstname'], 0, 1);
         }
-        $dv .= '. ';
+        $dv .= '';
         if (isset($clientLastname)) {
             $dv .= $clientLastname;
         } elseif (isset($clientInfo['clientLastname'])) {

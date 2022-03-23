@@ -1,14 +1,14 @@
 <?php
 // Main PHP Motors Reviews Model
 
-function insertReview($reviewText, $reviewDate, $invId, $clientId) {
+function insertReview($reviewText, $invId, $clientId) {
 
     // Create a connection object using the phpmotors connection function
     $db = phpmotorsConnect();
 
     // The SQL statement
-    $sql = 'INSERT INTO reviews (reviewText, reviewDate, invId, clientId)
-        VALUES (:reviewText, :reviewDate, :invId, :clientId)';
+    $sql = 'INSERT INTO reviews (reviewText, invId, clientId)
+        VALUES (:reviewText, :invId, :clientId)';
 
   // Create the prepared statement using the phpmotors connection
     $stmt = $db->prepare($sql);
@@ -16,7 +16,7 @@ function insertReview($reviewText, $reviewDate, $invId, $clientId) {
     // statement with the actual values in the variables
     // and tells the database the type of data it is
     $stmt->bindValue(':reviewText', $reviewText, PDO::PARAM_STR);
-    $stmt->bindValue(':reviewDate', $reviewDate, PDO::PARAM_STR);
+//     $stmt->bindValue(':reviewDate', $reviewDate, PDO::PARAM_STR);
     $stmt->bindValue(':invId', $invId, PDO::PARAM_STR);
     $stmt->bindValue(':clientId', $clientId, PDO::PARAM_STR);
 
@@ -37,7 +37,7 @@ function insertReview($reviewText, $reviewDate, $invId, $clientId) {
 function getReviewsByInvId($invId) {
 
 	 $db = phpmotorsConnect();
-	 $sql = ' SELECT * FROM reviews WHERE invId = :invId';
+	 $sql = ' SELECT * FROM reviews WHERE invId = :invId ORDER BY reviewDate DESC';
 	 $stmt = $db->prepare($sql);
 	 $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
 	 $stmt->execute();

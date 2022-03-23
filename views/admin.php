@@ -19,6 +19,9 @@ if (!isset($_SESSION['loggedin'])) {
         $info .= "<h2>Inventory Management</h2>";
         $info .= "<p>Manage your vehicle inventory <a href='/phpmotors/vehicles/'>here</a>.</p>";
     }
+
+    $info .= "<h2>Your Reviews</h2>";
+    $info .= "<p>Update your account information <a href='/phpmotors/accounts?action=mod'>here</a>.</p>";
 }
 ?><!DOCTYPE html>
 <html lang="en-US">

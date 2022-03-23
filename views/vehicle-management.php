@@ -33,7 +33,7 @@ if (isset($_SESSION['message'])) {
                 }
                 if (isset($classificationList)) {
 	                 echo '<h2>Vehicles By Classification</h2>';
-	                 echo '<p>Choose a classification to see those vehicles</p>';
+	                 echo '<p>Choose a classification to see those vehicles: </p>';
 	                 echo $classificationList;
                 }
                 ?>

@@ -25,12 +25,12 @@ if ($action == NULL) {
 switch ($action) {
     case 'add-review':
         $reviewText = filter_input(INPUT_POST, 'reviewText', FILTER_SANITIZE_STRING);
-        $reviewDate = time();
+//         $reviewDate = time();
         $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
         $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
 
 		// Check for missing data
-		if (empty($reviewText) || empty($reviewDate) || empty($invId) || empty($clientId)) {
+		if (empty($reviewText) || empty($invId) || empty($clientId)) {
 			$message = "<p class='notice'>Please write a review before trying to submit it.</p>";
 			$_SESSION['message'] = $message;
 			header("Location: /phpmotors/vehicles/?action=details&invId=$invId");
@@ -38,7 +38,7 @@ switch ($action) {
 		}
 
 		// Send the data to the model if no errors exist
-        $addOutcome = insertReview($reviewText, $reviewDate, $invId, $clientId);
+        $addOutcome = insertReview($reviewText, $invId, $clientId);
 
         // Check and report result
         if ($addOutcome === 1) {
@@ -59,6 +59,9 @@ switch ($action) {
     case 'edit-review':
         break;
     case 'delete-review-page':
+        $message = "<p class='notice'>Are you sure that you want to delete this review?</p>";
+        $_SESSION['message'] = $message;
+//         header("Location: /phpmotors/vehicles/?action=details&invId=$invId");
         include '../views/delete-review.php';
         break;
     case 'delete-review':

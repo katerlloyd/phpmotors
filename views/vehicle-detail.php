@@ -1,8 +1,6 @@
 <?php
-$clientInfo = $_SESSION['clientData'];
-
-if ($clientInfo === null) {
-    $message = 'Sorry, your information could not be found.';
+if (isset($_SESSION['loggedin'])) {
+	$clientInfo = $_SESSION['clientData'];
 }
 ?><!DOCTYPE html>
 <html lang="en-US">
@@ -49,7 +47,7 @@ if ($clientInfo === null) {
 					<label for="reviewText">Write a Review:
 	                    <textarea name="reviewText" id="reviewText" rows="5" required><?php if(isset($reviewText)){echo "$reviewText";} ?></textarea>
 	                </label>
-	                <p class="name"><?php if(isset($clientFirstname)){echo substr($clientFirstname, 0, 1) . '. ';} elseif(isset($clientInfo['clientFirstname'])) {echo substr($clientInfo['clientFirstname'], 0, 1) . '. ';} if(isset($clientLastname)){echo $clientLastname;} elseif(isset($clientInfo['clientLastname'])) {echo $clientInfo['clientLastname'];} ?></p>
+	                <p class="name"><?php if(isset($clientFirstname)){echo substr($clientFirstname, 0, 1);} elseif(isset($clientInfo['clientFirstname'])) {echo substr($clientInfo['clientFirstname'], 0, 1);} if(isset($clientLastname)){echo $clientLastname;} elseif(isset($clientInfo['clientLastname'])) {echo $clientInfo['clientLastname'];} ?></p>
 	                <button type="submit">Submit Review</button>
                     <input type="hidden" name="action" value="add-review">
                     <input type="hidden" name="clientId" value="<?php if(isset($clientInfo['clientId'])){ echo $clientInfo['clientId'];} elseif(isset($clientId)){ echo $clientId; } ?>">
