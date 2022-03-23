@@ -25,7 +25,6 @@ if ($action == NULL) {
 switch ($action) {
     case 'add-review':
         $reviewText = filter_input(INPUT_POST, 'reviewText', FILTER_SANITIZE_STRING);
-//         $reviewDate = time();
         $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
         $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
 
@@ -54,9 +53,38 @@ switch ($action) {
         }
         break;
     case 'edit-review-page':
-	    include '../views/edit-review.php';
+        $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_VALIDATE_INT);
+        $review = getReviewByReviewId($reviewId);
+        if (count($reviews) < 1) {
+            $message = "You haven't written any reviews yet.";
+        }
+        include '../views/edit-review.php';
+        exit;
         break;
     case 'edit-review':
+		$reviewId = filter_input(INPUT_POST, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
+        $reviewText = filter_input(INPUT_POST, 'reviewText', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $reviewDate = filter_input(INPUT_POST, 'reviewDate', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+        $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
+
+        if (empty($reviewId) || empty($reviewText) || empty($reviewDate) || empty($invId) || empty($clientId)) {
+            $message = "<p class='notice'>Please complete all information for the review.</p>";
+            include '../views/edit-review.php';
+            exit;
+        }
+
+        $updateResult = updateReview($reviewId, $reviewText, $reviewDate, $invId, $clientId);
+        if ($updateResult) {
+            $message = "<p class='notice'>Congratulations, your review was successfully updated.</p>";
+            $_SESSION['message'] = $message;
+            include '../views/admin.php';
+            exit;
+        } else {
+            $message = "<p class='notice'>Error: Your review was not updated.</p>";
+            include '../views/edit-review.php';
+            exit;
+        }
         break;
     case 'delete-review-page':
         $message = "<p class='notice'>Are you sure that you want to delete this review?</p>";

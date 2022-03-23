@@ -21,7 +21,8 @@ if (!isset($_SESSION['loggedin'])) {
     }
 
     $info .= "<h2>Your Reviews</h2>";
-    $info .= "<p>Update your account information <a href='/phpmotors/accounts?action=mod'>here</a>.</p>";
+    $info .= "<noscript><p class='notice'><strong>JavaScript Must Be Enabled to Use this Feature.</strong></p></noscript>";
+    $info .= "<table id='reviewListDisplay'></table>";
 }
 ?><!DOCTYPE html>
 <html lang="en-US">
@@ -30,6 +31,7 @@ if (!isset($_SESSION['loggedin'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Admin | PHP Motors</title>
         <link rel="stylesheet" href="/phpmotors/css/styles.css" type="text/css" media="screen">
+        <script defer src="../js/reviews.js"></script>
     </head>
     <body>
         <header>
