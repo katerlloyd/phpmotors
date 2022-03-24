@@ -38,16 +38,20 @@ if (isset($_SESSION['loggedin'])) {
 		        </div>
 		        <?php if (isset($vehicleDisplay)) { echo $vehicleDisplay; } ?>
             </div>
+            <br>
             <h2>Customer Reviews</h2>
             <?php if (isset($_SESSION['message'])) { echo $_SESSION['message']; } ?>
             <?php if (!isset($_SESSION['loggedin'])) { ?>
                 <p class='review-notice'>Add a review by <a href="/phpmotors/accounts/?action=login")>logging in</a>.</p>
             <?php } else { ?>
-				<form action="/phpmotors/reviews/index.php" method="POST">
-					<label for="reviewText">Write a Review:
-	                    <textarea name="reviewText" id="reviewText" rows="5" required><?php if(isset($reviewText)){echo "$reviewText";} ?></textarea>
+                <p>WRITE A REVIEW</p>
+				<form id="review-form" action="/phpmotors/reviews/index.php" method="POST">
+	                <label for="name">Screen Name:
+                        <input class="name" type="text" id="name" name="name" readonly value="<?php if(isset($clientFirstname)){echo substr($clientFirstname, 0, 1);} elseif(isset($clientInfo['clientFirstname'])) {echo substr($clientInfo['clientFirstname'], 0, 1);} if(isset($clientLastname)){echo $clientLastname;} elseif(isset($clientInfo['clientLastname'])) {echo $clientInfo['clientLastname'];} ?>">
+                    </label>
+					<label for="reviewText">Review this vehicle:
+	                    <textarea name="reviewText" id="reviewText" rows="7" required><?php if(isset($reviewText)){echo "$reviewText";} ?></textarea>
 	                </label>
-	                <p class="name"><?php if(isset($clientFirstname)){echo substr($clientFirstname, 0, 1);} elseif(isset($clientInfo['clientFirstname'])) {echo substr($clientInfo['clientFirstname'], 0, 1);} if(isset($clientLastname)){echo $clientLastname;} elseif(isset($clientInfo['clientLastname'])) {echo $clientInfo['clientLastname'];} ?></p>
 	                <button type="submit">Submit Review</button>
                     <input type="hidden" name="action" value="add-review">
                     <input type="hidden" name="clientId" value="<?php if(isset($clientInfo['clientId'])){ echo $clientInfo['clientId'];} elseif(isset($clientId)){ echo $clientId; } ?>">

@@ -20,9 +20,10 @@ if (!isset($_SESSION['loggedin'])) {
         $info .= "<p>Manage your vehicle inventory <a href='/phpmotors/vehicles/'>here</a>.</p>";
     }
 
-    $info .= "<h2>Your Reviews</h2>";
+    $info .= "<h2>Manage Your Reviews</h2>";
     $info .= "<noscript><p class='notice'><strong>JavaScript Must Be Enabled to Use this Feature.</strong></p></noscript>";
     $info .= "<table id='reviewListDisplay'></table>";
+
 }
 ?><!DOCTYPE html>
 <html lang="en-US">
@@ -42,6 +43,8 @@ if (!isset($_SESSION['loggedin'])) {
         </nav>
         <main>
             <?php echo $info; ?>
+            <input id="clientId" type="hidden" name="clientId" value="<?php if(isset($clientData['clientId'])){ echo $clientData['clientId'];} elseif(isset($clientId)){ echo $clientId; } ?>">
+            <input id="invId" type="hidden" name="invId" value="">
         </main>
         <footer>
             <?php require $_SERVER['DOCUMENT_ROOT'].'/phpmotors/snippets/footer.php'; ?>

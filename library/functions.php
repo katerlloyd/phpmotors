@@ -245,10 +245,7 @@ function buildReviewsDisplay($reviews) {
 		$clientInfo = getClientById($review['clientId']);
         $dv .= "<div class='review'>";
         $dv .= "<p>$review[reviewText]</p>";
-        $dv .= "<p class='min'>";
-        $dv .= date('F d, Y \a\t g:i A', strtotime($review['reviewDate']));
-        $dv .= "</p>";
-        $dv .= "<p class='min'>";
+        $dv .= "<p class='min'><strong>";
         if (isset($clientFirstname)) {
             $dv .= substr($clientFirstname, 0, 1);
         } elseif (isset($clientInfo['clientFirstname'])) {
@@ -260,6 +257,8 @@ function buildReviewsDisplay($reviews) {
         } elseif (isset($clientInfo['clientLastname'])) {
             $dv .= $clientInfo['clientLastname'];
         }
+        $dv .= "</strong> wrote on ";
+        $dv .= date('F d, Y \a\t g:i A', strtotime($review['reviewDate']));
         $dv .= "</p>";
         $dv .= "</div>";
     }

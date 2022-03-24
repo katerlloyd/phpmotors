@@ -191,26 +191,26 @@ input:required:valid, textarea:required:valid {
     background-color: #daffc2;
 }
 
-#inventoryDisplay thead th {
+#inventoryDisplay thead th, #reviewListDisplay thead th {
     text-align: left;
 }
 
-#inventoryDisplay tbody tr td {
+#inventoryDisplay tbody tr td, #reviewListDisplay tbody tr td {
     padding: 0.5rem;
 }
 
-#inventoryDisplay a {
+#inventoryDisplay a, #reviewListDisplay a {
     text-decoration: none;
     padding: 0.25rem;
     border-radius: 7px;
 }
 
-#inventoryDisplay tbody tr td:nth-child(3n+0) a {
+#inventoryDisplay tbody tr td:nth-child(3n+0) a, #reviewListDisplay tbody tr td:nth-child(3n+0) a {
     color: #8a1919;
     background-color: #ffdede;
 }
 
-#inventoryDisplay tbody tr td:nth-child(2n+0) a {
+#inventoryDisplay tbody tr td:nth-child(2n+0) a, #reviewListDisplay tbody tr td:nth-child(2n+0) a {
     color: #194e7d;
     background-color: #d4ebff;
 }
@@ -346,6 +346,32 @@ hr {
 .min {
 	font-size: 11.5pt;
 	color: #0f5592;
+}
+
+#review-form {
+	max-width: fit-content;
+	border: 2px solid #0f5592;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #ebf2fa;
+}
+
+#name {
+	font-size: inherit;
+}
+
+#review-form textarea {
+	border: 2px solid #0f5592;
+    border-radius: 8px;
+    min-width: 100%;
+}
+
+#review-form textarea:required:invalid, #review-form textarea:focus:invalid {
+    background-color: #ffffff;
+}
+
+#review-form textarea:required:valid {
+    background-color: #ffffff;
 }
 
 

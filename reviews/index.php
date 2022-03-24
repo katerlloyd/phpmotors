@@ -52,6 +52,24 @@ switch ($action) {
             exit;
         }
         break;
+    case 'getReviews':
+	     // Get the clientId
+	     $clientId = filter_input(INPUT_GET, 'clientId', FILTER_SANITIZE_NUMBER_INT);
+	     // Fetch the reviews by clientId from the DB
+	     $reviewsArray = getReviewsByClientId($clientId);
+	     // Convert the array to a JSON object and send it back
+	     echo json_encode($reviewsArray);
+	     break;
+	case 'getVehicles':
+	     // Get the invId
+// 	     $invId = $_GET['invId'];
+// 	     $invId = htmlspecialchars($invId);
+	     $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
+         // Fetch the vehicle by invId from the DB
+         $vehiclesArray = getInvItemInfo($invId);
+         // Convert the array to a JSON object and send it back
+         echo json_encode($vehiclesArray);
+         break;
     case 'edit-review-page':
         $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_VALIDATE_INT);
         $review = getReviewByReviewId($reviewId);
