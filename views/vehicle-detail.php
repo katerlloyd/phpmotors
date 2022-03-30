@@ -26,7 +26,7 @@ if (isset($_SESSION['loggedin'])) {
             	} elseif (isset($invMake) && isset($invModel)) {
             	    echo "$invMake $invModel";
             	} ?></h1>
-            	<p class="review-notice">Reviews are shown at the bottom of the page.</p>
+            	<p class="review-notice">Reviews are displayed at the bottom of the page.</p>
             <?php if (isset($message)) {echo $message;} ?>
             <?php if (isset($_SESSION['message'])) { echo $_SESSION['message']; } ?>
             <div id="grid">
@@ -44,8 +44,8 @@ if (isset($_SESSION['loggedin'])) {
             <?php if (!isset($_SESSION['loggedin'])) { ?>
                 <p class='review-notice'>Add a review by <a href="/phpmotors/accounts/?action=login")>logging in</a>.</p>
             <?php } else { ?>
-                <p>WRITE A REVIEW</p>
-				<form id="review-form" action="/phpmotors/reviews/index.php" method="POST">
+				<form class="review-form" action="/phpmotors/reviews/index.php" method="POST">
+					<h3>LEAVE A REVIEW</h3>
 	                <label for="name">Screen Name:
                         <input class="name" type="text" id="name" name="name" readonly value="<?php if(isset($clientFirstname)){echo substr($clientFirstname, 0, 1);} elseif(isset($clientInfo['clientFirstname'])) {echo substr($clientInfo['clientFirstname'], 0, 1);} if(isset($clientLastname)){echo $clientLastname;} elseif(isset($clientInfo['clientLastname'])) {echo $clientInfo['clientLastname'];} ?>">
                     </label>

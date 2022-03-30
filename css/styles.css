@@ -168,19 +168,24 @@ label {
 
 form button {
     background-color: #4c96d7;
-    color: #3a3a3a;
+    color: #ffffff;
     cursor: pointer;
     font-weight: bold;
     font-size: inherit;
+    border: none;
 }
 
 form button:hover, form button:focus {
     background-color: #0f5592;
-    color: #bababa;
 }
 
 #password-notice {
     margin-bottom: 0.5rem;
+}
+
+h3 {
+	margin: 0;
+	margin-bottom: 1rem;
 }
 
 input:required:invalid, input:focus:invalid, textarea:required:invalid, textarea:focus:invalid {
@@ -331,6 +336,10 @@ hr {
 	display: inline;
 }
 
+.review-notice {
+	margin: 1rem 0;
+}
+
 .name {
 	margin-bottom: 1rem;
 }
@@ -344,11 +353,12 @@ hr {
 }
 
 .min {
-	font-size: 11.5pt;
+	font-size: 12pt;
 	color: #0f5592;
+	margin-top: 0.75rem;
 }
 
-#review-form {
+.review-form {
 	max-width: fit-content;
 	border: 2px solid #0f5592;
     border-radius: 8px;
@@ -360,17 +370,17 @@ hr {
 	font-size: inherit;
 }
 
-#review-form textarea {
+.review-form textarea {
 	border: 2px solid #0f5592;
     border-radius: 8px;
     min-width: 100%;
 }
 
-#review-form textarea:required:invalid, #review-form textarea:focus:invalid {
+.review-form textarea:required:invalid, #review-form textarea:focus:invalid {
     background-color: #ffffff;
 }
 
-#review-form textarea:required:valid {
+.review-form textarea:required:valid {
     background-color: #ffffff;
 }
 

@@ -53,21 +53,15 @@ switch ($action) {
         }
         break;
     case 'getReviews':
-	     // Get the clientId
 	     $clientId = filter_input(INPUT_GET, 'clientId', FILTER_SANITIZE_NUMBER_INT);
-	     // Fetch the reviews by clientId from the DB
 	     $reviewsArray = getReviewsByClientId($clientId);
-	     // Convert the array to a JSON object and send it back
 	     echo json_encode($reviewsArray);
 	     break;
 	case 'getVehicles':
-	     // Get the invId
 // 	     $invId = $_GET['invId'];
 // 	     $invId = htmlspecialchars($invId);
 	     $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
-         // Fetch the vehicle by invId from the DB
          $vehiclesArray = getInvItemInfo($invId);
-         // Convert the array to a JSON object and send it back
          echo json_encode($vehiclesArray);
          break;
     case 'edit-review-page':
@@ -105,13 +99,34 @@ switch ($action) {
         }
         break;
     case 'delete-review-page':
-        $message = "<p class='notice'>Are you sure that you want to delete this review?</p>";
-        $_SESSION['message'] = $message;
-//         header("Location: /phpmotors/vehicles/?action=details&invId=$invId");
+        $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_VALIDATE_INT);
+        $review = getReviewByReviewId($reviewId);
+        if (count($reviews) < 1) {
+	        $message = 'Sorry, no review information could be found.';
+	    }
         include '../views/delete-review.php';
+        exit;
         break;
     case 'delete-review':
-        break;
+		$invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+		$vehicle = getInvItemInfo($invId);
+		$invMake = $vehicle['invMake'];
+        $invModel = $vehicle['invModel'];
+		$reviewId = filter_input(INPUT_POST, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
+
+		$deleteResult = deleteReview($reviewId);
+		if ($deleteResult) {
+		    $message = "<p class='notice'>Congratulations, your $invMake $invModel review was successfully deleted.</p>";
+		    $_SESSION['message'] = $message;
+		    header('Location: /phpmotors/reviews/');
+		    exit;
+		} else {
+		    $message = "<p class='notice'>Error: $invMake $invModel was not deleted.</p>";
+		    $_SESSION['message'] = $message;
+		    header('Location: /phpmotors/reviews/');
+		    exit;
+		}
+		break;
     default:
         include '../views/admin.php';
         break;
