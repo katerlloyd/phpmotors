@@ -31,7 +31,7 @@ fetch(clientIdURL)
 			dataTable += `<td>${element.reviewDate}</td>`
 			dataTable += `<td>${element.invMake} ${element.invModel}</td>`;
 			dataTable += `<td>${element.reviewText}</td>`;
-			dataTable += `<td class="review-buttons"><a class="mod" href='/phpmotors/reviews?action=edit-review-page&reviewId=${element.reviewId}' title='Click to edit'>Edit</a>`;
+			dataTable += `<td class="review-buttons"><a class="mod" href='/phpmotors/reviews?action=edit-review-page&reviewId=${element.reviewId}' title='Click to modify'>Modify</a>`;
 			dataTable += `<a class="del" href='/phpmotors/reviews?action=delete-review-page&reviewId=${element.reviewId}' title='Click to delete'>Delete</a></td></tr>`;
 	  })
 	  dataTable += '</tbody>';
