@@ -1,5 +1,5 @@
 <?php 
-require_once '../model/accounts-model.php';
+// require_once '../model/accounts-model.php';
 
 // Checks if email is valid
 function checkEmail($clientEmail) {

@@ -7,6 +7,7 @@ require_once '../library/functions.php';
 require_once '../model/main-model.php';
 require_once '../model/reviews-model.php';
 require_once '../model/vehicles-model.php';
+require_once '../model/accounts-model.php';
 
 $classifications = getClassifications();
 

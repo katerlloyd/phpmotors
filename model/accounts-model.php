@@ -1,7 +1,6 @@
 <?php
 // Main PHP Motors Accounts Model
 
-
 // Handles site registrations
 function regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword) {
    
