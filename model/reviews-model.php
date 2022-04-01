@@ -50,7 +50,7 @@ function getReviewsByInvId($invId) {
 function getReviewsByClientId($clientId) {
 
 	 $db = phpmotorsConnect();
-	 $sql = 'SELECT * FROM reviews WHERE clientId = :clientId ORDER BY reviewDate DESC';
+	 $sql = 'SELECT r.reviewId, r.reviewText, DATE_FORMAT(r.reviewDate, "%m/%e/%Y") reviewDate, i.invMake, i.invModel FROM reviews r LEFT JOIN inventory i ON r.invId = i.invId WHERE clientId = :clientId ORDER BY r.reviewDate DESC';
 	 $stmt = $db->prepare($sql);
 	 $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
 	 $stmt->execute();
@@ -63,11 +63,11 @@ function getReviewsByClientId($clientId) {
 function getReviewByReviewId($reviewId) {
 
 	 $db = phpmotorsConnect();
-	 $sql = 'SELECT * FROM reviews WHERE reviewId = :reviewId ORDER BY reviewDate DESC';
+	 $sql = 'SELECT * FROM reviews WHERE reviewId = :reviewId';
 	 $stmt = $db->prepare($sql);
 	 $stmt->bindValue(':reviewId', $reviewId, PDO::PARAM_INT);
 	 $stmt->execute();
-	 $review = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	 $review = $stmt->fetch(PDO::FETCH_ASSOC);
 	 $stmt->closeCursor();
 	 return $review;
 }

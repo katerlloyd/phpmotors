@@ -210,7 +210,7 @@ input:required:valid, textarea:required:valid {
     border-radius: 7px;
 }
 
-#inventoryDisplay tbody tr td:nth-child(3n+0) a, #reviewListDisplay tbody tr td:nth-child(3n+0) a {
+#inventoryDisplay tbody tr td:nth-child(3n+0) a, #reviewListDisplay tbody tr td:nth-child(5n+0) a {
     color: #8a1919;
     background-color: #ffdede;
 }
@@ -368,6 +368,7 @@ hr {
 
 #name {
 	font-size: inherit;
+	border: 2px solid #0f5592;
 }
 
 .review-form textarea {
