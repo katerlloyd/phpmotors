@@ -202,6 +202,7 @@ input:required:valid, textarea:required:valid {
 
 #inventoryDisplay tbody tr td, #reviewListDisplay tbody tr td {
     padding: 0.5rem;
+    word-wrap: break-word;
 }
 
 #inventoryDisplay a, #reviewListDisplay a {
@@ -210,12 +211,12 @@ input:required:valid, textarea:required:valid {
     border-radius: 7px;
 }
 
-#inventoryDisplay tbody tr td:nth-child(3n+0) a, #reviewListDisplay tbody tr td:nth-child(5n+0) a {
+#inventoryDisplay tbody tr td:nth-child(3n+0) a {
     color: #8a1919;
     background-color: #ffdede;
 }
 
-#inventoryDisplay tbody tr td:nth-child(2n+0) a, #reviewListDisplay tbody tr td:nth-child(2n+0) a {
+#inventoryDisplay tbody tr td:nth-child(2n+0) a {
     color: #194e7d;
     background-color: #d4ebff;
 }
@@ -383,6 +384,25 @@ hr {
 
 .review-form textarea:required:valid {
     background-color: #ffffff;
+}
+
+.review-buttons {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.review-buttons a {
+    margin: 0.5rem;
+}
+
+.review-buttons .mod {
+    color: #194e7d;
+    background-color: #d4ebff;
+}
+
+.review-buttons .del {
+    color: #8a1919;
+    background-color: #ffdede;
 }
 
 

@@ -50,7 +50,7 @@ function getReviewsByInvId($invId) {
 function getReviewsByClientId($clientId) {
 
 	 $db = phpmotorsConnect();
-	 $sql = 'SELECT r.reviewId, r.reviewText, DATE_FORMAT(r.reviewDate, "%m/%e/%Y") reviewDate, i.invMake, i.invModel FROM reviews r LEFT JOIN inventory i ON r.invId = i.invId WHERE clientId = :clientId ORDER BY r.reviewDate DESC';
+	 $sql = 'SELECT r.reviewId, r.reviewText, DATE_FORMAT(r.reviewDate, "%M %e, %Y") reviewDate, i.invMake, i.invModel FROM reviews r LEFT JOIN inventory i ON r.invId = i.invId WHERE clientId = :clientId ORDER BY r.reviewDate DESC';
 	 $stmt = $db->prepare($sql);
 	 $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
 	 $stmt->execute();
