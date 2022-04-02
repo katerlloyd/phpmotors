@@ -79,6 +79,7 @@ switch ($action) {
 
         if (count($review) < 1) {
             $message = "You haven't written any reviews yet.";
+            exit;
         }
         include '../views/edit-review.php';
         exit;
@@ -91,6 +92,7 @@ switch ($action) {
 		$clientId = $review['clientId'];
         $reviewText = filter_input(INPUT_POST, 'reviewText', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+        $vehicle = getInvItemInfo($invId);
 
         if (empty($reviewId) || empty($reviewText) || empty($reviewDate) || empty($invId) || empty($clientId)) {
             $message = "<p class='notice'>Please complete all information for the review.</p>";
@@ -116,6 +118,7 @@ switch ($action) {
         $review = getReviewByReviewId($reviewId);
         if (count($review) < 1) {
 	        $message = 'Sorry, no review information could be found.';
+			exit;
 	    }
         include '../views/delete-review.php';
         exit;
